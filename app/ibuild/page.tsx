@@ -193,8 +193,9 @@ export default function IBuild() {
             loading="lazy"
           />
           <figcaption id="game-controls">
-            Arrow keys or WASD to move; release to stop. On touch screens, swipe
-            and hold. Escape pauses the game.
+            <span className={styles.highlight}>Meant for desktop</span> Arrow
+            keys or WASD to move; release to stop. On touch screens, swipe and
+            hold. Escape pauses the game.
           </figcaption>
         </figure>
         <p>
@@ -227,12 +228,12 @@ export default function IBuild() {
         </p>
         <figure>
           <ImagePreview
-              src="/imas.png"
-              width={1440}
-              height={960}
-              sizes={imageSizes}
-              alt="Database matches and review actions brought together in a single EUIPO interface"
-            />
+            src="/imas.png"
+            width={1440}
+            height={960}
+            sizes={imageSizes}
+            alt="Database matches and review actions brought together in a single EUIPO interface"
+          />
           <figcaption>
             Results from separate sources, brought into one review. Open the
             image for a closer look.
@@ -249,22 +250,22 @@ export default function IBuild() {
         <div className={styles.imagePair}>
           <figure>
             <ImagePreview
-                src="/bo-before.png"
-                width={1669}
-                height={1185}
-                sizes={pairSizes}
-                alt="Previous interface of the intellectual property operations platform"
-              />
+              src="/bo-before.png"
+              width={1669}
+              height={1185}
+              sizes={pairSizes}
+              alt="Previous interface of the intellectual property operations platform"
+            />
             <figcaption>Before: the existing platform.</figcaption>
           </figure>
           <figure>
             <ImagePreview
-                src="/bo-after.png"
-                width={1440}
-                height={1024}
-                sizes={pairSizes}
-                alt="Updated intellectual property operations interface with grouped case information"
-              />
+              src="/bo-after.png"
+              width={1440}
+              height={1024}
+              sizes={pairSizes}
+              alt="Updated intellectual property operations interface with grouped case information"
+            />
             <figcaption>
               After: the updated interface. Open either image to inspect it.
             </figcaption>
@@ -278,12 +279,12 @@ export default function IBuild() {
           </p>
           <figure>
             <ImagePreview
-                src="/dd-letter.png"
-                width={1440}
-                height={960}
-                sizes={imageSizes}
-                alt="Decision Desktop letter creation interface with a document preview"
-              />
+              src="/dd-letter.png"
+              width={1440}
+              height={960}
+              sizes={imageSizes}
+              alt="Decision Desktop letter creation interface with a document preview"
+            />
             <figcaption>
               Decision Desktop: from structured answers to a document.
             </figcaption>

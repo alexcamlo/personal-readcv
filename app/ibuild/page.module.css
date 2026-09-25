@@ -60,6 +60,13 @@
   align-items: start;
 }
 
+.highlight {
+  font-weight: 600;
+  padding-inline: 4px;
+  background: var(--wash1);
+  color: black;
+}
+
 .details {
   border-block: 1px solid var(--wash1);
   font-size: 1rem;
