@@ -5,6 +5,7 @@ import CaseViewer from "./CaseViewer";
 
 export const metadata: Metadata = {
   title: "Alejandro Cámara ⋅ I Build",
+  robots: { index: false, follow: false },
   description:
     "A personal note to Adrián: custom hardware, a CLI, a playable game, and product design at EUIPO.",
 };
