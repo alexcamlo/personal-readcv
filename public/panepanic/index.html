@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#0a1919">
+  <title>Pane Panic</title>
+  <link rel="icon" href="data:,">
+  <script type="module" crossorigin src="/panepanic/assets/index-BoJRokfg.js"></script>
+  <link rel="stylesheet" crossorigin href="/panepanic/assets/index-CT3Xsp_p.css">
+</head>
+<body>
+  <main>
+    <header id="game-header">
+      <h1 class="sr-only">Pane Panic</h1>
+      <button id="level-select-button" hidden type="button">← Levels</button>
+      <p id="hud"><span id="level-hud">Campaign</span><span id="cleared"></span><span id="objective-hud"> · Choose a Level</span></p>
+      <button id="help" type="button" aria-haspopup="dialog">Menu</button>
+    </header>
+    <p id="announcer" class="sr-only" role="status" aria-live="polite" aria-atomic="true">Level Select — choose an available Level.</p>
+    <section id="level-select" aria-labelledby="level-select-title">
+      <h2 id="level-select-title" tabindex="-1">Campaign</h2>
+      <p id="campaign-status">Campaign — 0 of 10 Levels complete.</p>
+      <button id="share-select" class="share-results" hidden type="button">Share results</button>
+      <ol id="level-list" aria-label="Campaign Levels"></ol>
+    </section>
+    <section id="campaign-complete" hidden aria-labelledby="campaign-complete-title">
+      <h2 id="campaign-complete-title" tabindex="-1">Campaign Complete</h2>
+      <p>All ten Levels restored — every Landscape is fully cleared.</p>
+      <ol id="complete-list" aria-label="Completed Levels"></ol>
+      <button id="share-complete" class="share-results" type="button">Share results</button>
+      <button id="complete-level-select" type="button">Level Select</button>
+    </section>
+    <div id="window-space" hidden>
+      <div id="window-shell">
+        <div id="window">
+          <canvas id="game" tabindex="0" aria-label="Pane Panic Window" aria-describedby="movement-help player-position">A golden fire spirit clears frost from a window while a snowflake Threat hunts it.</canvas>
+          <div id="countdown" hidden aria-hidden="true">3</div>
+          <section id="level-intro" hidden aria-labelledby="level-title">
+            <p id="level-number"></p>
+            <h2 id="level-title" tabindex="-1"></h2>
+            <p class="intro-label">Objective</p>
+            <div id="level-objective"></div>
+            <p id="level-description"></p>
+            <p id="level-warning"><span aria-hidden="true">✦</span> Avoid the Frost Wisp</p>
+            <p id="landscape-status" role="status"></p>
+            <p id="intro-controls">Arrow keys / WASD · Release to stop</p>
+            <button id="intro-level-select" class="tertiary" type="button">← Back to Levels</button>
+          </section>
+          <div id="results-area">
+            <p id="failure-status" hidden>Failure — the Frost Wisp struck the exposed Player or Trail. Resetting the Run.</p>
+            <section id="results" hidden aria-label="Level Result">
+              <p id="result-clearance"></p>
+              <p id="result-time"></p>
+              <p id="result-breakdown"></p>
+              <p id="result-total"></p>
+            </section>
+          </div>
+        </div>
+        <canvas id="window-frame" aria-hidden="true"></canvas>
+      </div>
+    </div>
+    <p id="player-position" class="sr-only" aria-live="off"></p>
+    <nav aria-label="Game controls">
+      <button id="sound" aria-pressed="true" type="button">Sound on</button>
+      <button id="retry" hidden type="button">Retry Landscape</button>
+      <button id="start" disabled type="button">Start Level</button>
+      <button id="pause" hidden type="button">Pause</button>
+      <button id="next-level" hidden type="button" class="primary">Next Level</button>
+      <button id="again" hidden type="button">Replay Level</button>
+      <button id="restart" hidden type="button">Restart…</button>
+    </nav>
+  </main>
+  <dialog id="restart-dialog" aria-labelledby="restart-title">
+    <h2 id="restart-title">Restart this Run?</h2>
+    <p>The unfinished Run will be abandoned and no Level Result will be recorded. Campaign progress and settings are preserved.</p>
+    <form method="dialog">
+      <button value="cancel">Cancel</button>
+      <button value="confirm" autofocus>Restart</button>
+    </form>
+  </dialog>
+  <dialog id="help-dialog" aria-labelledby="help-title">
+    <h2 id="help-title">Pane Panic</h2>
+    <fieldset>
+      <legend>Settings</legend>
+      <button id="motion" aria-pressed="false" type="button">Reduced motion</button>
+    </fieldset>
+    <p id="movement-help">Hold Arrow keys or WASD to move; release to stop. On the Window, swipe at least 18 pixels and hold to keep moving. Swipe again to steer; lift to stop.</p>
+    <p>The golden fire spirit is your Player. The solid, light-and-dark Boundary is safe. Turns happen at intersections. A stopped partial path finishes before turning. Near-misses that merely look like contact are safe.</p>
+    <p>Move into the frost to draw a glowing, vulnerable Trail. Reconnect with any Boundary to close it and reveal part of the Window away from the Frost Wisp. Retrace your Trail exactly to erase it. A Trail cannot touch or cross itself. Each Level asks you to clear part of the Window, restore marked Zones, or both.</p>
+    <p>The Frost Wisp wanders the frost (~) and reflects off Boundaries. An exposed Trail starts a Warning (!): after 0.75 seconds the Wisp pursues (&raquo;) the nearest of you and your Trail. Touching you or any Trail segment immediately fails the Run. Failure is announced, then the same Level setup resets automatically with a fresh countdown; there are no lives.</p>
+    <p>Pause freezes the Run. After an interruption, choose Resume and give a fresh movement command. Escape pauses while the Window has focus.</p>
+    <p>Sound is optional: every cue is also visible, and “Sound” mutes. “Reduced motion” makes capture and full-reveal fades instant, like your system's reduced-motion setting.</p>
+    <form method="dialog"><button>Close</button></form>
+  </dialog>
+  <noscript>Pane Panic needs JavaScript to play.</noscript>
+</body>
+</html>
